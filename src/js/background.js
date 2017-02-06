@@ -98,12 +98,12 @@
 	    //if(DEBUG) console.log("tab",tab);
 	    //if(DEBUG) console.log("tab.url",tab.url);
 
-	    var listingUrl = /kijiji.ca\/v-/;
+	    var listingUrl = /kijiji.ca\/b-/;
 
 	    if(listingUrl.test(tab.url)){
-	    	// LISTING PAGE: /f-
+	    	// LISTING PAGE: /b-
 	    	validListingPage(tab);
-	    	if(DEBUG) console.log("MapifyKijiji: VALID Kijiji LISTING URL (/f-):", tab.url);
+	    	if(DEBUG) console.log("MapifyKijiji: VALID Kijiji LISTING URL (/b-):", tab.url);
 	    }else if(tab.url.indexOf('kijiji.ca') != -1){
 		// ANY KIJIJI PAGE
 		chrome.pageAction.setIcon({tabId: tab.id, path: "images/icon38_grey.png"}, function(){
