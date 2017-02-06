@@ -98,31 +98,23 @@
 	    //if(DEBUG) console.log("tab",tab);
 	    //if(DEBUG) console.log("tab.url",tab.url);
 
-	    var listing1 = /kijiji.ca\/f-/,
-	    	listing2 = /kijiji.ca\/p\//;
+	    var listingUrl = /kijiji.ca\/v-/;
 
-	    if(listing1.test(tab.url)){
+	    if(listingUrl.test(tab.url)){
 	    	// LISTING PAGE: /f-
 	    	validListingPage(tab);
 	    	if(DEBUG) console.log("MapifyKijiji: VALID Kijiji LISTING URL (/f-):", tab.url);
-
-	    }else if(listing2.test(tab.url)){
-	    	// LISTING PAGE: /p/
-	    	validListingPage(tab);
-	    	if(DEBUG) console.log("MapifyKijiji: VALID Kijiji LISTING URL (/p/):", tab.url);
-
-		}else if(tab.url.indexOf('kijiji.ca') != -1){
-			// ANY KIJIJI PAGE
-			chrome.pageAction.setIcon({tabId: tab.id, path: "images/icon38_grey.png"}, function(){
-				chrome.pageAction.show(tab.id);
-			});
+	    }else if(tab.url.indexOf('kijiji.ca') != -1){
+		// ANY KIJIJI PAGE
+		chrome.pageAction.setIcon({tabId: tab.id, path: "images/icon38_grey.png"}, function(){
+			chrome.pageAction.show(tab.id);
+		});
 	    	if(DEBUG) console.log("MapifyKijiji: VALID ANY Kijiji URL:", tab.url);
-
-		}else{
-			// NOT A KIJIJI PAGE
-		    chrome.pageAction.hide(tab.id);
+	    }else{
+		// NOT A KIJIJI PAGE
+		chrome.pageAction.hide(tab.id);
 	    	if(DEBUG) console.log("MapifyKijiji: INVALID URL:", tab.url);				
-		}
+	    }
 	}
 
 	// Listen for changes to the URL of any tab
