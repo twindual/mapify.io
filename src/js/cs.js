@@ -292,13 +292,52 @@
 
 	// ** PAGE CLEANUP **
 	function runCleanup(){
+		// Cleanup ads
 		csLog("runCleanup");
-		// cleanup ads
-		$('#topAdSense, #bottomAdSense, .GoogleActiveViewClass, .sbTopadWrapper').remove();
-		$('#lmDIYads, #inlineBanner').parent().remove();
 
-		// change paid ads background color
-		$('tr[id*=resultFeat]').css('background','#ED4337');
+		// Remove Google AdSense.
+		$('.adsense-top-bar').remove();
+		$('.adsense-container').remove();
+
+		// Remove Sponsored Links
+		$('.sponsored').remove();
+		$('#ImageSponsors').remove();
+
+		/* Page: Ad listings */
+		if ($('#gpt-leaderboard-top').length) {
+			
+			// Remove Leaderboard ads.
+			$('#gpt-leaderboard-top').remove();
+			$('#gpt-leaderboard-base').remove();
+			$('#gpt-minileaderboard-base').remove();
+			$('#gpt-top-srp').remove();
+			$('#gpt-inline-srp').remove();
+
+			// Remove Top Ads.
+			$('.top-ads-top-bar').remove();
+			$('.top-feature').remove();
+			$('.top-ads-bottom-bar').remove();
+						
+			// Remove in-line ads.
+			$('.in-list').remove();
+
+			// Remove sidebar ads.
+			$('#SkyscraperSRP').remove();
+		}
+
+		/* Page: Ad details */
+		if ($('#VIPLeaderboard').length) {
+			
+			// Remove Leaderboard ads.
+			$('#VIPLeaderboard').remove();
+
+			// Remove sidebar Ads
+			$('.adroll-block').remove();
+			$('#GPTBigbox').remove();
+		}
+		
+		// Change paid ads background color
+		//$('tr[id*=resultFeat]').css('background','#ED4337');
 	}
 
 	// ** MAP **
